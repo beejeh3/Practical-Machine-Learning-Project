@@ -85,14 +85,12 @@ unwanted1 <- names(training_data) %in% c("kurtosis_yaw_belt", "kurtosis_yaw_dumb
                                    "skewness_yaw_belt", "skewness_yaw_dumbbell", "skewness_yaw_forearm",
                                   "amplitude_yaw_belt", "amplitude_yaw_dumbbell", "amplitude_yaw_forearm")
 training_data_1 <- training_data[!unwanted1]
-#summary(training.new)
 
 # remove unrelevant variables 
 unwanted2 <- names(training_data_1) %in% c("X", "user_name", "raw_timestamp_part_1", "raw_timestamp_part_2",
                                          "cvtd_timestamp") 
 training_data_1 <- training_data_1[!unwanted2]
-##summary(training.new)
-##str(training.new)
+
 # remove variables that's mostly NA's (> 95%) 
 index.NA <- sapply(training_data_1, is.na)
 Sum.NA <- colSums(index.NA)
